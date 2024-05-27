@@ -1,88 +1,146 @@
+// Alinha a esquerda
 function alingLeft() {
     var textarea = document.getElementById('area-texto')
     textarea.style.textAlign = 'left'
 }
+// Centraliza
 function alingCenter() {
     var textarea = document.getElementById('area-texto')
     textarea.style.textAlign = 'center'
 }
+// Alinha a direita
 function alingRight() {
     var textarea = document.getElementById('area-texto')
     textarea.style.textAlign = 'right'
 }
+// Justifica
 function alingJustify() {
     var textarea = document.getElementById('area-texto')
     textarea.style.textAlign = 'justify'
 }
+// Negrito
 function bold() {
     var textarea = document.getElementById('area-texto')
     textarea.style.fontWeight = 'bold'
 }
+// Italico
 function italic() {
     var textarea = document.getElementById('area-texto')
     textarea.style.fontStyle = 'italic'
 }
+// Sublinhado
 function underline() {
     var textarea = document.getElementById('area-texto')
     textarea.style.textDecoration = 'underline'
 }
-function color(){
+// Muda a cor do texto
+function color() {
     var color = document.getElementById('text-color').value
     var textarea = document.getElementById('area-texto')
     textarea.style.color = color
 }
-function fontSize(){
+// Tamanho da fonte
+function fontSize() {
     var fontSize = Number(document.getElementById('font-size').value)
     var textarea = document.getElementById('area-texto')
     textarea.style.fontSize = fontSize + 'px'
 }
-
+// Reseta os estilos
 function resetStyles() {
-    var textarea = document.getElementById('area-texto');
-    textarea.style.textAlign = '';
-    textarea.style.fontWeight = '';
-    textarea.style.fontStyle = '';
-    textarea.style.textDecoration = '';
-    textarea.style.color = '';
-    textarea.style.fontSize = '';
+    var textarea = document.getElementById('area-texto')
+    textarea.style.fontWeight = ''
+    textarea.style.fontStyle = ''
+    textarea.style.textDecoration = ''
+    textarea.style.color = ''
 }
+// Aumenta +1 
+function uppercase() {
+    var textarea = document.getElementById('area-texto')
+    var fontSize = window.getComputedStyle(textarea, null).getPropertyValue('font-size')
+    fontSize = parseFloat(fontSize)
+    fontSize++
+    textarea.style.fontSize = fontSize + 'px'
+}
+// Diminui -1
+function lowercase() {
+    var textarea = document.getElementById('area-texto')
+    var fontSize = window.getComputedStyle(textarea, null).getPropertyValue('font-size')
+    fontSize = parseFloat(fontSize)
+    fontSize--
+    textarea.style.fontSize = fontSize + 'px'
+}
+// Apaga o texto
+function erease() {
+    var textarea = document.getElementById('area-texto')
+    textarea.value = ''
+}
+// Dark mode
+function darkMode() {
+    var darkmode = document.querySelector('main')
+    var textarea = document.getElementById('area-texto')
+    var header = document.querySelector('header')
+    var buttons = document.querySelectorAll('button')
+    var select = document.querySelector('select')
 
+    darkmode.classList.toggle('main-dark-mode')
+    textarea.classList.toggle('textarea-dark-mode')
+    header.classList.toggle('header-dark-mode')
+    buttons.forEach(function(button) {
+        button.classList.toggle('button-dark-mode')
+    });
+    select.classList.toggle('button-dark-mode')
+}
+// Reseta o texto com o teclado
 document.getElementById('area-texto').addEventListener('keydown', function(event) {
     if (event.ctrlKey && event.altKey && event.key === 'f') {
-        event.preventDefault();
-        var textarea = document.getElementById('area-texto');
-            textarea.style.textAlign = '';
-            textarea.style.fontWeight = '';
-            textarea.style.fontStyle = '';
-            textarea.style.textDecoration = '';
-            textarea.style.color = '';
-            textarea.style.fontSize = '';
+        event.preventDefault()
+        resetStyles()
     }
-})
-
+});
+// Funcionalidades no teclado
 document.getElementById('area-texto').addEventListener('keydown', function(event) {
     if (event.ctrlKey) {
-        event.preventDefault();
-        if (event.key === 'q') {
-            this.style.textAlign = 'left';
-        }
-        else if (event.key === 'e') {
-            this.style.textAlign = 'center';
-        }
-        else if (event.key === 'r') {
-            this.style.textAlign = 'right';
-        }
-        else if (event.key === 'j') {
-            this.style.textAlign = 'justify';
-        } 
-        else if (event.key === 'b') {
-            this.style.fontWeight = 'bold'
-        }
-        else if (event.key === 'i') {
-            this.style.fontStyle = 'italic'
-        }
-        else if (event.key === 's') {
-            this.style.textDecoration = 'underline'
+        switch(event.key) {
+            case 'q':
+                event.preventDefault()
+                alingLeft()
+                break
+            case 'e':
+                event.preventDefault()
+                alingCenter()
+                break
+            case 'r':
+                event.preventDefault()
+                alingRight()
+                break
+            case 'j':
+                event.preventDefault()
+                alingJustify()
+                break
+            case 'b':
+                event.preventDefault()
+                bold()
+                break
+            case 'i':
+                event.preventDefault()
+                italic()
+                break
+            case 's':
+                event.preventDefault()
+                underline()
+                break
+            case '+':
+                event.preventDefault()
+                uppercase()
+                break
+            case '-':
+                event.preventDefault()
+                lowercase()
+                break
+            case 'u':
+                event.preventDefault()
+                erease()
+                break
         }
     }
 });

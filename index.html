@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editor de texto</title>
+    <!-- Api de Icones -->
     <script src="https://kit.fontawesome.com/f2a1b5996c.js" crossorigin="anonymous"></script>
+    <!-- Css -->
     <link rel="stylesheet" href="projeto-editor-de-texto/style.css">
+    <!-- JavaScript Puro -->
     <script src="index.js"></script>
 </head>
 <body>
     <header>
+        <!-- Icones e funcionalidades -->
         <section>
             <abbr title="Tamanho da fonte">
-                <select name="" id="font-size" onchange="fontSize()">
+                <select name="" id="font-size" onchange="fontSize()" >
                     <option value="8">8</option>
                     <option value="9">9</option>
                     <option value="10">10</option>
@@ -27,22 +31,27 @@
                     <option value="28">28</option>
                     <option value="36">36</option>
                     <option value="48">48</option>
-                    <option value="72">72..</option>
+                    <option value="72">72</option>
                 </select>
             </abbr>
+            <abbr title="Aumentar fonte (CTRL+'+')"><button id="uppercase" class="fa-solid fa-plus" onclick="uppercase()"></button></abbr>
+            <abbr title="Diminuir fonte (CTRL+'-')"><button id="lowercase" class="fa-solid fa-minus" onclick="lowercase()"></button></abbr>
             <abbr title="Alinhar o texto à esquerda (CTRL+Q)"><button id="aling-left" class="fa-solid fa-align-left" onclick="alingLeft()"></button></abbr>
             <abbr title="Centralizar (CTRL+E)"><button id="aling-center" class="fa-solid fa-align-center" onclick="alingCenter()"></button></abbr>
             <abbr title="Alinhar o texto à direita (CTRL+R)"><button id="aling-right" class="fa-solid fa-align-right" onclick="alingRight()"></button></abbr>
             <abbr title="Justificar (CTRL+J)"><button id="aling-justify" class="fa-solid fa-align-justify" onclick="alingJustify()"></button></abbr>
             <abbr title="Negrito (CTRL+B)"><button id="bold" class="fa-solid fa-bold" onclick="bold()"></button></abbr>
-            <abbr title="Ítalico (CTRL+I)" ><button id="italic" class="fa-solid fa-italic" onclick="italic()"></button></abbr>
+            <abbr title="Ítalico (CTRL+I)"><button id="italic" class="fa-solid fa-italic" onclick="italic()"></button></abbr>
             <abbr title="Sublinhado (CTRL+S)"><button id="underline" class="fa-solid fa-underline" onclick="underline()"></button></abbr>
-            <abbr title="Cor do texto"><input type="color" id="text-color" onchange="color()"></button></abbr>
+            <abbr title="Cor do texto"><input type="color" id="text-color" onchange="color()"></abbr>
             <abbr title="Resetar formatações (CTRL+ALT+F)"><button id="reset" class="fa-solid fa-rotate-right" onclick="resetStyles()"></button></abbr>
+            <abbr title="Apagar texto (CTRL+U)"><button id="erease" class="fa-solid fa-eraser" onclick="erease()"></button></abbr>
+            <abbr title="Dark Mode"><button id="dark-mode" class="fa-solid fa-circle-half-stroke" onclick="darkMode()"></button></abbr>
         </section>
     </header>
+    <!-- Area principal e texto -->
     <main>
-        <textarea name="" id="area-texto"></textarea>
+        <textarea name="" id="area-texto" style="font-size: 16px;"></textarea>
     </main>
 </body>
 </html>

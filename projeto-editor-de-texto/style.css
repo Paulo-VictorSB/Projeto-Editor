@@ -1,11 +1,12 @@
+/* Api de fontes do Google */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-
+/* Estilos gerais */
 * {
     margin: 0;
     padding: 0;
     font-family: "Ubuntu", sans-serif;
 }
-
+/* Api fontes do Google */
 .ubuntu-light {
     font-family: "Ubuntu", sans-serif;
     font-weight: 300;
@@ -53,7 +54,7 @@
     font-weight: 700;
     font-style: italic;
 }
-
+/* Cabeçalho */
 header {
     display: flex;
     align-items: center;
@@ -67,7 +68,6 @@ header > section {
     flex-flow: row wrap;
     display: flex;
     gap: 5px;
-    width: 20%;
     justify-content: space-between;
 }
 
@@ -76,6 +76,7 @@ select {
     width: 40px;  
     border: 1px inset white;
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.185);
+    background-color: rgba(0, 0, 255, 0);
 }
 
 header > section > abbr > button, #text-color {
@@ -91,13 +92,13 @@ header > section > abbr > button, #text-color:hover {
     background-color: rgba(236, 236, 243, 0.849);
     transition: .5s;
 }
-
+/* Main */
 main {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 90vh;
-    background-color: rgba(236, 236, 243, 0.849);
+    background-color: rgb(236, 236, 243);
 }
 
 textarea {
@@ -113,39 +114,91 @@ textarea:focus {
     outline: none; 
     border: none;
 }
+/* Tela para celulares na horizontal */
+@media only screen and (min-width: 480px) {
+    section {
+        width: 80%;
+    }
 
-@media screen and (max-width: 321px){
-
-    header > section {
-        gap: 5px;
-        width: 60%;
+    header > section > abbr > button, #text-color, select {
+        height: 20px;
+        width: 50px;
     }
 
     textarea {
-        width: 100%;
+        width: 80%;
     }
 }
+/* Tela para celulares na vertical */
+@media only screen and (max-width: 479px) {
 
-@media screen and (min-width: 322px){
-    header > section {
-        gap: 5px;
-        width: 60%;
+    section {
+        width: 90%;
+    }
+    header > section > abbr > button, #text-color, select {
+        height: 20px;
+        width: 25px;
     }
 
     textarea {
         width: 90%;
     }
 }
+/* Tela para notebooks */
+@media only screen and (min-width: 960px) {
+    header > section > abbr > button, #text-color, select {
+        height: 40px;
+        width: 40px;
+    }
+}
+/* Tela para computadores */
+@media only screen and (min-width: 1360px) {
 
-@media screen and (min-width: 1024px) {
-
-    header > section {
-        flex-flow: row nowrap;
-        gap: 5px;
-        width: 20%;
+    section {
+        width: 40%;
     }
 
     textarea {
         width: 60%;
     }
+
+    select {
+        height: 30px;
+        width: 40px;  
+        border: 1px inset white;
+        box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.185);
+        background-color: rgba(0, 0, 255, 0);
+    }
+    
+    header > section > abbr > button, #text-color {
+        height: 30px;
+        width: 30px;
+        background-color: rgba(0, 0, 255, 0);
+        border: 1px inset white;
+        box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.185);
+    }
+}
+
+/* JS Estilos */
+
+.main-dark-mode {
+    background-color: rgb(27, 27, 27);
+    transition: .5s;
+}
+
+.textarea-dark-mode {
+    background-color: rgb(63, 63, 63);
+    transition: .5s;
+    color: white;
+}
+
+.header-dark-mode {
+    background-color: rgb(34, 34, 34);
+    transition: .5s;
+    color: white;
+}
+
+.button-dark-mode {
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
 }

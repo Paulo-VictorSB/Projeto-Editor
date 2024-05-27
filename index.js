@@ -81,6 +81,7 @@ function darkMode() {
     var header = document.querySelector('header')
     var buttons = document.querySelectorAll('button')
     var select = document.querySelector('select')
+    var option = document.querySelectorAll('option')
 
     darkmode.classList.toggle('main-dark-mode')
     textarea.classList.toggle('textarea-dark-mode')
@@ -89,6 +90,9 @@ function darkMode() {
         button.classList.toggle('button-dark-mode')
     });
     select.classList.toggle('button-dark-mode')
+    option.forEach(function(option) {
+        option.classList.toggle('option-dark-mode')
+    });
 }
 // Reseta o texto com o teclado
 document.getElementById('area-texto').addEventListener('keydown', function(event) {

@@ -115,6 +115,7 @@ textarea:focus {
     border: none;
 }
 /* Tela para celulares na horizontal */
+
 @media only screen and (min-width: 480px) {
     section {
         width: 80%;
@@ -152,7 +153,7 @@ textarea:focus {
     }
 }
 /* Tela para computadores */
-@media only screen and (min-width: 1360px) {
+@media only screen and (min-width: 1270px) {
 
     section {
         width: 40%;
